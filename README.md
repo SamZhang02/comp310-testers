@@ -16,7 +16,7 @@ For any uncertainties, inaccurate tests, etc. Open an issue in this repository.
 
 This repository is **NOT** for sharing actual, official, assignment tests. This repository is only for student-made tests.
 
-For any concerns from the Professor or TAs regarding this reposity, please reach out to me directly at `sam.zhang@mail.mcgill.ca`.
+For any concerns from the Professor or TAs regarding this repository, please reach out to me directly at `sam.zhang@mail.mcgill.ca`.
 
 ## Authors
 
