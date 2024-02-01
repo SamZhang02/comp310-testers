@@ -1,0 +1,7 @@
+set x 10
+print x
+set x 20 bob alice toto xyz
+print x
+set x 12345 20 bob alice toto xyz
+print x
+quit
