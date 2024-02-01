@@ -24,11 +24,11 @@ Individuals tests should be defined in the dictionary `tests`, which includes th
 
 Input commands files are stored under `/commands` and output files to compare to are stored in `/outputs`.
 
+**IMPORTANT**: This test does **not** test at a unit level, it tests the shell in an end-to-end way and only performs assertions on stdout. Your program **must** quit at the end by using `quit` or some kind of interrupt, otherwise, the test suite will hang.
+
 ## Disclaimer
 This test is does not guarantee correctness.
 
 This test purely student-made is not responsible for any innacuracy with the official tests.
-
-This test does **not** test at a unit level, it tests the shell in an end-to-end way and only performs assertions on stdout.
 
 

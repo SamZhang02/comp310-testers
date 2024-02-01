@@ -25,7 +25,7 @@ class ShellTestClient:
 
   def assess_output(self, expected_output_file):
     if self.stderr:
-      print(f"Your program returned an error: {self.stderr}")
+      # print(f"Your program returned an error: {self.stderr}")
       return False
 
     with open(expected_output_file ,'r') as fobj:
@@ -47,12 +47,12 @@ class ShellTestClient:
     return True
 
 
-client = ShellTestClient('myshell')
-
 COMMANDS_PATH = "./commands"
 OUTPUT_PATH = "./outputs"
 
 def run_test(name, input_file, output_file):
+    client = ShellTestClient('myshell')
+
     client.run_shell_with_input(input_file)
 
     if client.assess_output(output_file) is False:
@@ -64,7 +64,8 @@ def run_test(name, input_file, output_file):
 
 def main():
   tests: dict[str, tuple[str,str]] = {
-    "Should launch without error": ("launch.txt", "launch.txt")
+    "Should launch without error": ("launch.txt", "launch.txt"),
+    "Should set variables like the assignment instructions": ("set_1.txt", "set_1.txt")
   }
 
   ok_count = 0
