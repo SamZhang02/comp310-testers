@@ -20,7 +20,7 @@ Contributions are welcome.
 
 The main entry point of the test is `test.py`, where there is a client class to help with testing.
 
-Individuals tests should be defined inside functions, which are stored in a list in the main function
+Individuals tests should be defined in the dictionary `tests`, which includes the same of the test, the input command file and the output file to compare the stdout to.
 
 ```
 run_tests()
@@ -30,5 +30,9 @@ Input commands files are stored under `/commands` and output files to compare to
 
 ## Disclaimer
 This test is does not guarantee correctness.
+
 This test purely student-made is not responsible for any innacuracy with the official tests.
+j
+This test does **not** test at a unit level, it tests the shell in an end-to-end way and only performs assertions on stdout.
+
 
