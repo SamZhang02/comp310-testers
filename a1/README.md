@@ -32,7 +32,7 @@ Input commands files are stored under `/commands` and output files to compare to
 This test is does not guarantee correctness.
 
 This test purely student-made is not responsible for any innacuracy with the official tests.
-j
+
 This test does **not** test at a unit level, it tests the shell in an end-to-end way and only performs assertions on stdout.
 
 
