@@ -22,10 +22,6 @@ The main entry point of the test is `test.py`, where there is a client class to 
 
 Individuals tests should be defined in the dictionary `tests`, which includes the same of the test, the input command file and the output file to compare the stdout to.
 
-```
-run_tests()
-```
-
 Input commands files are stored under `/commands` and output files to compare to are stored in `/outputs`.
 
 ## Disclaimer
