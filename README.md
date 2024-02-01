@@ -1,6 +1,6 @@
 # COMP310 testers
 
-This is a public, unofficial repository for assignment tests for the Winter 2024 semester, COMP310 Operating Systems class from McGill University.
+This is a public, unofficial repository for student-made assignment tests for the Winter 2024 semester, COMP310 Operating Systems class from McGill University.
 
 ## How to navigate
 
