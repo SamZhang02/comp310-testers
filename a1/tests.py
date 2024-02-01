@@ -46,13 +46,21 @@ class ShellTestClient:
 
     return True
 
+  def assess_new_file(self, file_name):
+    ...
+
+  def assess_new_directory(self, dir_name):
+    ...
+
+  def assess_curr_dir(self, dir_name):
+    ...
 
 client = ShellTestClient('myshell')
 
 COMMANDS_PATH = "./commands"
 OUTPUT_PATH = "./outputs"
 
-def run_test(name, input_file, output_file):
+def run_tests(name, input_file, output_file):
     client.run_shell_with_input(input_file)
 
     if client.assess_output(output_file) is False:
@@ -63,11 +71,6 @@ def run_test(name, input_file, output_file):
         return True
 
 if __name__ == "__main__":
-
-  tests: dict[str, tuple[str,str]] = {
-    "Should launch without error": ("launch.txt", "launch.txt")
-
-  }
 
   ok_count = 0
   for name, paths in tests.items():
