@@ -14,13 +14,7 @@ class ShellTestClient:
 
     # print(f"running command {command}")
 
-    process = subprocess.Popen(
-      command,
-      stdout=subprocess.PIPE,
-      stderr=subprocess.PIPE,
-      text=True,
-      shell=True
-    )
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, shell=True)
 
     self.stdout, self.stderr = process.communicate()
 
@@ -29,7 +23,7 @@ class ShellTestClient:
       # print(f"Your program returned an error: {self.stderr}")
       return False
 
-    with open(expected_output_file ,'r') as fobj:
+    with open(expected_output_file, 'r') as fobj:
       expected_output = fobj.read()
 
     stdout_lines = self.stdout.strip().split('\n')
@@ -53,46 +47,42 @@ class ShellTestClient:
 
     return True
 
-
 COMMANDS_PATH = "commands"
 OUTPUT_PATH = "outputs"
 
 def run_test(name, input_file, output_file):
-    client = ShellTestClient('myshell')
+  client = ShellTestClient('myshell')
 
-    client.run_shell_with_input(input_file)
+  client.run_shell_with_input(input_file)
 
-    if client.assess_output(output_file) is False:
-        print(f"{name} ------ \033[91mfailed\033[0m")
-        return False
-    else:
-        print(f"{name} ------ \033[92mok\033[0m")
-        return True
-
+  if client.assess_output(output_file) is False:
+    print(f"{name} ------ \033[91mfailed\033[0m")
+    return False
+  else:
+    print(f"{name} ------ \033[92mok\033[0m")
+    return True
 
 def clean_directories():
-    assets_dir = "assets"
-    keep_dir = 'keep'
+  assets_dir = "assets"
+  keep_dir = 'keep'
 
-    os.chdir(assets_dir)
+  os.chdir(assets_dir)
 
-    for item in os.listdir('.'):
-        path = os.path.join('.', item)
+  for item in os.listdir('.'):
+    path = os.path.join('.', item)
 
-        if item == keep_dir:
-            continue
+    if item == keep_dir:
+      continue
 
-        if os.path.isfile(path):
-            os.remove(path)
-        elif os.path.isdir(path):
-            shutil.rmtree(path)
+    if os.path.isfile(path):
+      os.remove(path)
+    elif os.path.isdir(path):
+      shutil.rmtree(path)
 
-    os.chdir('..')
-
-
+  os.chdir('..')
 
 def main():
-  tests: dict[str, tuple[str,str]] = {
+  tests: dict[str, tuple[str, str]] = {
     "Launch without error": ("launch.txt", "launch.txt"),
     "Set variables like the assignment instructions": ("set_1.txt", "set_1.txt"),
     "Error when setting empty variables and set number as variables": ("set_2.txt", "set_2.txt"),

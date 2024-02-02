@@ -4,3 +4,5 @@ docker:
 test:
 	python3 tests.py
 
+fmt:
+	yapf --in-place --recursive .
