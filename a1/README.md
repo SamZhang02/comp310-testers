@@ -34,4 +34,4 @@ any files created by your shell should be created in `./assets`, every file exce
 
 This test does not guarantee correctness.
 
-This test is purely student-made is not responsible for any innacuracy with the official tests.
+This test is purely student-made and is not responsible for any innacuracy with the official tests.
