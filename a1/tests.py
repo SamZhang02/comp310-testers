@@ -85,7 +85,7 @@ def main():
   tests: dict[str, tuple[str, str]] = {
     "Launch without error": ("launch.txt", "launch.txt"),
     "Set variables like the assignment instructions": ("set_1.txt", "set_1.txt"),
-    "Error when setting empty variables and set number as variables": ("set_2.txt", "set_2.txt"),
+    "Set empty variables, numbers as variables": ("set_2.txt", "set_2.txt"),
     "Echo non-variable, empty variables, filled variables, numeric variable names": ("echo.txt", "echo.txt"),
     "mkdir empty, mkdir too many, mkdir new dir. touch 2 new files and ls": ("navigate_1.txt", "navigate_1.txt"),
     "navigate to existing directory, ls existing files": ("navigate_2.txt", "navigate_2.txt"),
