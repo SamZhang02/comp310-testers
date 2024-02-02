@@ -29,8 +29,8 @@ class ShellTestClient:
     stdout_lines = self.stdout.strip().split('\n')
     expected_lines = expected_output.strip().split('\n')
 
-    print(self.stdout)
-    print(expected_output)
+    # print(self.stdout)
+    # print(expected_output)
 
     i = 0
     if len(stdout_lines) != len(expected_lines):
