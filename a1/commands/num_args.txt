@@ -1,0 +1,18 @@
+set
+set a
+set 1 2 3 4 5 6 7
+echo
+echo a b
+my_ls a
+my_ls a b
+my_mkdir a a
+my_mkdir a a a
+my_touch a a a
+my_touch
+my_cd
+my_cd not_exist
+my_cd a a a
+my_cat
+my_cat not_exist
+my_cat a a a a
+quit

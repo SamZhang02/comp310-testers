@@ -1,0 +1,26 @@
+Shell v1.0
+COMMAND			DESCRIPTION
+help			Displays all the commands
+quit			Exits / terminates the shell with “Bye!”
+set VAR STRING		Assigns a value to shell memory
+print VAR		Displays the STRING assigned to VAR
+run SCRIPT.TXT		Executes the file SCRIPT.TXT
+
+Bad command: set
+Bad command: set
+Bad command: set
+Unknown Command
+Unknown Command
+Unknown Command
+Unknown Command
+Unknown Command
+Unknown Command
+Unknown Command
+Unknown Command
+Unknown Command
+Bad command: my_cd
+Unknown Command
+Unknown Command
+Bad command: my_cat
+Unknown Command
+Bye!

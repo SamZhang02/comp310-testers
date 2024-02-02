@@ -6,8 +6,8 @@ class ShellTestClient:
 
   def __init__(self, shell_executable):
     self.shell_executable = shell_executable
-    self.stdout = None
-    self.stderr = None
+    self.stdout = ""
+    self.stderr = ""
 
   def run_shell_with_input(self, input_commands_file):
     command = f'./{self.shell_executable} < {input_commands_file}',
@@ -29,8 +29,8 @@ class ShellTestClient:
     stdout_lines = self.stdout.strip().split('\n')
     expected_lines = expected_output.strip().split('\n')
 
-    # print(self.stdout)
-    # print(expected_output)
+    print(self.stdout)
+    print(expected_output)
 
     i = 0
     if len(stdout_lines) != len(expected_lines):
@@ -94,7 +94,9 @@ def main():
     "nested mkdir": ("nest_mkdir.txt", "nest_mkdir.txt"),
     "nested touch, empty touch": ("touch.txt", "touch.txt"),
     "null cat, empty cat, long cat": ("meow.txt", "meow.txt"),
-    "empty ls, normal ls": ("ls.txt", "ls.txt")
+    "empty ls, normal ls": ("ls.txt", "ls.txt"),
+    "weird numbers of arguments": ("num_args.txt", "num_args.txt"),
+    "public test for set": ("public_set.txt", "public_set.txt")
   }
 
   ok_count = 0
