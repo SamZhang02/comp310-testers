@@ -1,0 +1,7 @@
+my_cd assets/keep
+my_cd ../..
+my_cd ./assets
+my_ls
+my_cd ../../code/assets/keep/../../assets/keep/
+my_ls
+quit

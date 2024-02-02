@@ -1,0 +1,10 @@
+my_ls a
+my_ls a a
+my_cd assets
+my_mkdir empty
+my_cd empty
+my_ls
+my_cd ..
+my_cd keep
+my_ls
+quit

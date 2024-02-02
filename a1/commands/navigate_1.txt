@@ -1,0 +1,12 @@
+my_cd assets
+my_mkdir
+my_mkdir abc
+my_cd abc
+my_cd ..
+my_mkdir a b c
+my_cd assets
+my_cd abc
+my_touch a.txt
+my_touch b.txt
+my_ls
+quit

@@ -1,0 +1,11 @@
+my_cd assets
+my_touch
+my_touch aa
+my_mkdir some_dir
+my_touch some_dir/yum_yum
+my_touch ../assets/./nom_nom
+my_ls
+my_cd some_dir
+my_ls
+quit
+

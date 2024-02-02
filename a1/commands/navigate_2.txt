@@ -1,0 +1,4 @@
+my_cd assets
+my_cd keep
+my_ls
+quit

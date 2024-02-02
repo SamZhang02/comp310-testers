@@ -1,0 +1,12 @@
+echo mary
+echo $mary
+set mary abc
+echo $mary
+echo $1
+set 1 2
+echo 1
+echo $1
+echo a b
+set aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa a
+echo $aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+quit

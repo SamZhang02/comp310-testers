@@ -1,0 +1,5 @@
+my_cd assets/keep
+my_cat error.err
+my_cat another_file.bib
+my_cat test_file.txt
+quit

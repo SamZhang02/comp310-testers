@@ -1,0 +1,9 @@
+my_mkdir assets/lalala
+my_mkdir assets/lalala/aaa
+my_cd assets
+my_mkdir lalala/bbb
+my_cd lalala/bbb
+my_mkdir ../ccc
+my_cd ..
+my_ls
+quit

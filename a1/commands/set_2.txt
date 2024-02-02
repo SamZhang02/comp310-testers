@@ -1,0 +1,12 @@
+set
+set x 10
+set a b
+print a
+set a b c d e
+print a
+set y b c d e f g h i j
+print y
+print x
+set 1 2
+print 1
+quit
