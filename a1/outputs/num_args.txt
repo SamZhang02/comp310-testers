@@ -19,8 +19,8 @@ Unknown Command
 Unknown Command
 Unknown Command
 Bad command: my_cd
-Unknown Command
+Bad command: my_cd
 Unknown Command
 Bad command: my_cat
-Unknown Command
+Bad command: my_cat
 Bye!
