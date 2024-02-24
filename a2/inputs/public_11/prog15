@@ -1,0 +1,12 @@
+echo delay1
+echo delay2
+echo delay3
+echo thisProgramReadsVariablesSetByProg16
+set note onlyWorksWithRRscheduling
+set comment buffer
+echo $v1
+echo $v2
+echo $v3
+echo $v4
+echo $v5
+echo $v6

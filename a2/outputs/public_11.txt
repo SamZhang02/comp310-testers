@@ -1,0 +1,13 @@
+Shell v2.0
+Frame Store Size = 24; Variable Store Size = 10
+delay1
+delay2
+delay3
+thisProgramReadsVariablesSetByProg16
+HappyNewYearOfThe
+dragon
+2024
+longNian
+kuaiLe
+2024
+Bye!

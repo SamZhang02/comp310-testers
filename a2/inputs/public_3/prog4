@@ -1,0 +1,6 @@
+set a b
+print a
+echo P2L1
+set a c
+print a
+print a

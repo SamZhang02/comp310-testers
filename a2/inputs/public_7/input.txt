@@ -1,0 +1,2 @@
+exec prog1_pdf prog2_pdf prog3_pdf
+quit

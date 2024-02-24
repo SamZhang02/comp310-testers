@@ -1,0 +1,2 @@
+exec prog4 prog5 prog6
+quit

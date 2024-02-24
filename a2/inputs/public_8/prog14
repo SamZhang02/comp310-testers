@@ -1,0 +1,49 @@
+set a ALPHA
+set b BRAVO
+set c CHARLIE
+set d DELTA
+set e ECHO
+set f FOXTROT
+set g GOLF
+set h HOTEL
+set i INDIA
+set j JULIET
+set k KILO
+set l LIMA
+set m MIKE
+set n NOVEMBER
+set o OSCAR
+set p PAPA
+set q QUEBEC
+set r ROMEO
+set s SIERRA
+set t TANGO
+set u UNIFORM
+set v VICTOR
+set w WHISKEY
+set x XRAY
+echo $a
+echo $b
+echo $c
+echo $d
+echo $e
+echo $f
+echo $g
+echo $h
+echo $i
+echo $j
+echo $k
+echo $l
+echo $m
+echo $n
+echo $o
+echo $p
+echo $q
+echo $r
+echo $s
+echo $t
+echo $u
+echo $v
+echo $w
+echo $x
+quit

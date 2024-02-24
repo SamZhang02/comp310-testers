@@ -1,0 +1,11 @@
+echo P11L1
+set w PEightLineTwoSet
+print w
+echo P11L3
+echo $w
+echo P11L5
+echo P11L6
+echo P11L7
+echo P11L8
+echo P11L9
+echo P11L10

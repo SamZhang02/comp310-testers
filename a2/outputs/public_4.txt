@@ -1,0 +1,29 @@
+Shell v2.0
+Frame Store Size = 21; Variable Store Size = 10
+P7L1
+P7L2
+P8L1
+P8L2
+P9L1
+P9L2
+P7L3
+P7L4
+P8L3
+P8L4
+P9L3
+P9L4
+P7L5
+P7L6
+P8L5
+P8L6
+P9L5
+P9L6
+Page fault! Victim page contents:
+echo P7L1
+echo P7L2
+echo P7L3
+End of victim page contents.
+P7L7
+P8L7
+P8L8
+Bye!

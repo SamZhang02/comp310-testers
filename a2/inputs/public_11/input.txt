@@ -1,0 +1,2 @@
+exec prog15 prog16
+quit

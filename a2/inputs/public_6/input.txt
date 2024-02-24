@@ -1,0 +1,2 @@
+run prog8
+quit

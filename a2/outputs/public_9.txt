@@ -1,0 +1,102 @@
+Shell v2.0
+Frame Store Size = 6; Variable Store Size = 26
+Page fault! Victim page contents:
+set a ALPHA
+set b BRAVO
+set c CHARLIE
+End of victim page contents.
+Page fault! Victim page contents:
+set d DELTA
+set e ECHO
+set f FOXTROT
+End of victim page contents.
+Page fault! Victim page contents:
+set g GOLF
+set h HOTEL
+set i INDIA
+End of victim page contents.
+Page fault! Victim page contents:
+set j JULIET
+set k KILO
+set l LIMA
+End of victim page contents.
+Page fault! Victim page contents:
+set m MIKE
+set n NOVEMBER
+set o OSCAR
+End of victim page contents.
+Page fault! Victim page contents:
+set p PAPA
+set q QUEBEC
+set r ROMEO
+End of victim page contents.
+Page fault! Victim page contents:
+set s SIERRA
+set t TANGO
+set u UNIFORM
+End of victim page contents.
+ALPHA
+BRAVO
+CHARLIE
+Page fault! Victim page contents:
+set v VICTOR
+set w WHISKEY
+set x XRAY
+End of victim page contents.
+DELTA
+ECHO
+FOXTROT
+Page fault! Victim page contents:
+echo $a
+echo $b
+echo $c
+End of victim page contents.
+GOLF
+HOTEL
+INDIA
+Page fault! Victim page contents:
+echo $d
+echo $e
+echo $f
+End of victim page contents.
+JULIET
+KILO
+LIMA
+Page fault! Victim page contents:
+echo $g
+echo $h
+echo $i
+End of victim page contents.
+MIKE
+NOVEMBER
+OSCAR
+Page fault! Victim page contents:
+echo $j
+echo $k
+echo $l
+End of victim page contents.
+PAPA
+QUEBEC
+ROMEO
+Page fault! Victim page contents:
+echo $m
+echo $n
+echo $o
+End of victim page contents.
+SIERRA
+TANGO
+UNIFORM
+Page fault! Victim page contents:
+echo $p
+echo $q
+echo $r
+End of victim page contents.
+VICTOR
+WHISKEY
+XRAY
+Page fault! Victim page contents:
+echo $s
+echo $t
+echo $u
+End of victim page contents.
+Bye!
