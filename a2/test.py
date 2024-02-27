@@ -6,7 +6,7 @@ import shutil
 from multiprocessing import Pool
 
 ROOT = os.getcwd()
-CODE_PATH = os.path.join("./src")
+CODE_PATH = os.path.join(".", "src")
 
 
 class Shell:
@@ -20,7 +20,7 @@ class Shell:
     @classmethod
     def make_shell(cls, test, verbose=False):
 
-        if os.path.exists("./myshell"):
+        if os.path.exists(os.path.join(".", "myshell")):
             command = f"make clean && make myshell framesize={test.framesize} varmemsize={test.varmemsize}"
         else:
             command = (
@@ -107,9 +107,9 @@ class Test:
 
     def run_with(self, client: Shell):
         # copy all files in the test directory to the current directory
-        copied_files = []
         for file in os.listdir(self.dir):
-            shutil.copy(f"{self.dir}/{file}", os.getcwd())
+            filepath = os.path.join(self.dir, file)
+            shutil.copy(filepath, os.getcwd())
 
         client.batch_run(self.input)
 
@@ -134,7 +134,7 @@ def load_tests():
     for test_dir in os.listdir(TESTS_PATH):
         dir = os.path.join(TESTS_PATH, test_dir)
 
-        if not os.path.isfile(f"{dir}/config.json"):
+        if not os.path.isfile(os.path.join(dir, "config.json")):
             continue
 
         info = ""
@@ -142,8 +142,8 @@ def load_tests():
             info = json.load(f)
 
         name = info["name"]
-        input = f'{dir}/{info["input"]}'
-        output = f'{dir}/{info["output"]}'
+        input = os.path.join(dir,info["input"])
+        output = os.path.join(dir,info["output"])
         framesize = info["macros"]["framesize"]
         varmemzsize = info["macros"]["varmemsize"]
 
