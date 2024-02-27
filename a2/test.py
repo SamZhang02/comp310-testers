@@ -70,7 +70,7 @@ class Shell:
         with open(expected_output_file, "r") as fobj:
             expected_output = fobj.read()
 
-        stdout_lines = self.stdout.strip().split("\n")
+        stdout_lines = [line for line in self.stdout.strip().split("\n") if line.strip() != ""]
         expected_lines = expected_output.strip().split("\n")
 
         i = 0
