@@ -23,7 +23,9 @@ class Shell:
         if os.path.exists("./myshell"):
             command = f"make clean && make myshell framesize={test.framesize} varmemsize={test.varmemsize}"
         else:
-            command = f"make myshell framesize={test.framesize} varmemsize={test.varmemsize}"
+            command = (
+                f"make myshell framesize={test.framesize} varmemsize={test.varmemsize}"
+            )
 
         process = subprocess.Popen(
             command,
@@ -112,7 +114,9 @@ class Test:
         client.batch_run(self.input)
 
         # remove all files but files needed for compilation
-        os.system(r"find . -type f ! \( -name '*.c' -o -name '*.o' -o -name 'Makefile' -o -name '*.h' \) -delete")
+        os.system(
+            r"find . -type f ! \( -name '*.c' -o -name '*.o' -o -name 'Makefile' -o -name '*.h' \) -delete"
+        )
 
         if client.assert_output(self.output) is False:
             print(f"{self.name} ------ \033[91mfailed\033[0m")
@@ -122,7 +126,7 @@ class Test:
             return True
 
 
-TESTS_PATH = os.path.join(os.getcwd(),"tests")
+TESTS_PATH = os.path.join(os.getcwd(), "tests")
 
 
 def load_tests():
@@ -143,7 +147,7 @@ def load_tests():
         framesize = info["macros"]["framesize"]
         varmemzsize = info["macros"]["varmemsize"]
 
-        test = Test(dir,name, input, output, framesize, varmemzsize)
+        test = Test(dir, name, input, output, framesize, varmemzsize)
         tests.append(test)
 
     return tests
@@ -157,7 +161,6 @@ def main():
         help="Show test expected output and user given output",
         action="store_true",
     )
-    parser.add_argument( "--multiprocess", "-m", help="Run tests in parallel", action="store_true")
     args = parser.parse_args()
 
     os.chdir(CODE_PATH)
