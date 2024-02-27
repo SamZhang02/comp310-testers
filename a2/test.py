@@ -3,7 +3,6 @@ import os
 import json
 import argparse
 import shutil
-from multiprocessing import Pool
 
 ROOT = os.getcwd()
 CODE_PATH = os.path.join(".", "src")
@@ -48,7 +47,7 @@ class Shell:
 
     def batch_run(self, input_commands_file) -> None:
 
-        print(f"====================")
+        print(f"==============================================================")
         print(f"input content:")
         with open(input_commands_file, "r") as f:
             print(f.read())
@@ -161,6 +160,11 @@ def main():
         help="Show test expected output and user given output",
         action="store_true",
     )
+    parser.add_argument(
+        "--skip-public",
+        help="Skip public tests",
+        action="store_true",
+    )
     args = parser.parse_args()
 
     os.chdir(CODE_PATH)
@@ -168,17 +172,25 @@ def main():
     tests = load_tests()
 
     tests_passed = 0
+    tests_ran = 0
+    tests_skipped = 0
     for test in tests:
+        if args.skip_public and "public" in test.dir:
+            continue
+
         client = Shell.make_shell(test, args.verbose)
 
         if client is None:
             print(f"{test.name} ------ \033[93mnot ran\033[0m")
+            tests_skipped += 1
             continue
 
         err = test.run_with(client)
         tests_passed += 1 if err else 0
+        tests_ran += 1
 
-    print(f"{tests_passed}/{len(tests)} tests passed")
+    print(f"==============================================================")
+    print(f"Ran {tests_ran} tests\t\t {tests_passed} passed\t\t {tests_skipped} skipped")
 
     return 0
 

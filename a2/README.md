@@ -21,17 +21,11 @@ You can then run the tests by running the following command:
 ```bash
 python3 test.py
 ```
-
-The tests by default do not show any output. If you want to see the output of the tests, you can run add following flag:
-
-```bash
-python3 test.py -v
-```
-
-or
+The script takes a few optional arguments:
 
 ```bash
-python3 test.py -verbose
+-v, --verbose      On test fail, print the expected and actual output.
+--skip-public      Skip the public tests.
 ```
 
 ## Contributing
