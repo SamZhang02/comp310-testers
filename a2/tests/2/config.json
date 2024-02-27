@@ -1,0 +1,9 @@
+{
+  "name": "multiple calls to exec and run work as expected",
+  "input": "input.txt",
+  "output": "out.txt",
+  "macros": {
+    "framesize": 999,
+    "varmemsize": 1000
+  }
+}

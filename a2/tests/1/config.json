@@ -1,0 +1,9 @@
+{
+  "name": "can exit properly even when is it in a different directory",
+  "input": "input.txt",
+  "output": "out.txt",
+  "macros": {
+    "framesize": 300,
+    "varmemsize": 300
+  }
+}

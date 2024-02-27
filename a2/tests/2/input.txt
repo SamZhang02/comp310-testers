@@ -1,0 +1,5 @@
+exec prog1 prog2 prog3
+exec prog1 prog2 prog3
+run prog1
+run prog2
+quit

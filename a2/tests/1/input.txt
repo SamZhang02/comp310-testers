@@ -1,0 +1,3 @@
+my_mkdir test_dir
+my_cd test_dir
+quit
