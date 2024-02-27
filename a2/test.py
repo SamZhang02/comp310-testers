@@ -2,6 +2,11 @@ import subprocess
 import os
 import json
 import argparse
+import shutil
+from multiprocessing import Pool
+
+ROOT = os.getcwd()
+CODE_PATH = os.path.join("./src")
 
 
 class Shell:
@@ -15,7 +20,11 @@ class Shell:
     @classmethod
     def make_shell(cls, test, verbose=False):
 
-        command = f"cd {test.CODE_PATH} && make clean && make myshell framesize={test.framesize} varmemsize={test.varmemsize}"
+        if os.path.exists("./myshell"):
+            command = f"make clean && make myshell framesize={test.framesize} varmemsize={test.varmemsize}"
+        else:
+            command = f"make myshell framesize={test.framesize} varmemsize={test.varmemsize}"
+
         process = subprocess.Popen(
             command,
             stdout=subprocess.PIPE,
@@ -33,9 +42,15 @@ class Shell:
 
             return None
 
-        return cls(f"{test.CODE_PATH}/myshell", verbose)
+        return cls(f"./myshell", verbose)
 
-    def batch_run(self, input_commands_file):
+    def batch_run(self, input_commands_file) -> None:
+
+        print(f"====================")
+        print(f"input content:")
+        with open(input_commands_file, "r") as f:
+            print(f.readline())
+
         command = (f"{self.shell_executable} < {input_commands_file}",)
 
         process = subprocess.Popen(
@@ -48,9 +63,7 @@ class Shell:
 
         self.stdout, self.stderr = process.communicate()
 
-    def assert_output(self, expected_output_file):
-        if self.stderr:
-            return False
+    def assert_output(self, expected_output_file) -> bool:
 
         with open(expected_output_file, "r") as fobj:
             expected_output = fobj.read()
@@ -62,16 +75,18 @@ class Shell:
         if len(stdout_lines) != len(expected_lines):
             if self.verbose:
                 print(f"We expected: {expected_output}")
-                print(f"Your shell printed: {self.stdout}")
+                print(f"But your shell printed: {self.stdout}")
 
+            print(f"Your shell printed this to stderr: {self.stderr}")
             return False
 
         for stdout_line, expected_line in zip(stdout_lines, expected_lines):
             if stdout_line.strip() != expected_line.strip():
                 if self.verbose:
                     print(f"We expected: {expected_output}")
-                    print(f"Your shell printed: {self.stdout}")
+                    print(f"But your shell printed: {self.stdout}")
 
+                print(f"Your shell printed this to stderr: {self.stderr}")
                 return False
             i += 1
 
@@ -79,17 +94,25 @@ class Shell:
 
 
 class Test:
-    CODE_PATH = "./src"
 
-    def __init__(self, name, input, output, framesize, varmemsize):
+    def __init__(self, dir, name, input, output, framesize, varmemsize):
         self.name = name
+        self.dir = dir
         self.input = input
         self.output = output
         self.framesize = framesize
         self.varmemsize = varmemsize
 
     def run_with(self, client: Shell):
+        # copy all files in the test directory to the current directory
+        copied_files = []
+        for file in os.listdir(self.dir):
+            shutil.copy(f"{self.dir}/{file}", os.getcwd())
+
         client.batch_run(self.input)
+
+        # remove all files but files needed for compilation
+        os.system(r"find . -type f ! \( -name '*.c' -o -name '*.o' -o -name 'Makefile' -o -name '*.h' \) -delete")
 
         if client.assert_output(self.output) is False:
             print(f"{self.name} ------ \033[91mfailed\033[0m")
@@ -99,7 +122,7 @@ class Test:
             return True
 
 
-TESTS_PATH = f"{os.getcwd()}/tests"
+TESTS_PATH = os.path.join(os.getcwd(),"tests")
 
 
 def load_tests():
@@ -111,7 +134,7 @@ def load_tests():
             continue
 
         info = ""
-        with open(f"{dir}/config.json", "r") as f:
+        with open(os.path.join(dir, "config.json"), "r") as f:
             info = json.load(f)
 
         name = info["name"]
@@ -120,7 +143,7 @@ def load_tests():
         framesize = info["macros"]["framesize"]
         varmemzsize = info["macros"]["varmemsize"]
 
-        test = Test(name, input, output, framesize, varmemzsize)
+        test = Test(dir,name, input, output, framesize, varmemzsize)
         tests.append(test)
 
     return tests
@@ -134,14 +157,19 @@ def main():
         help="Show test expected output and user given output",
         action="store_true",
     )
+    parser.add_argument( "--multiprocess", "-m", help="Run tests in parallel", action="store_true")
     args = parser.parse_args()
 
+    os.chdir(CODE_PATH)
+
     tests = load_tests()
+
     tests_passed = 0
     for test in tests:
         client = Shell.make_shell(test, args.verbose)
 
         if client is None:
+            print(f"{test.name} ------ \033[93mnot ran\033[0m")
             continue
 
         err = test.run_with(client)

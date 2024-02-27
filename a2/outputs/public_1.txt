@@ -1,3 +1,0 @@
-Shell v2.0
-Frame Store Size = 0; Variable Store Size = 0
-Bye!

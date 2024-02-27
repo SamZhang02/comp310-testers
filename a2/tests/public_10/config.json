@@ -1,0 +1,9 @@
+{
+  "name": "public test 10",
+  "input": "input.txt",
+  "output": "out.txt",
+  "macros": {
+    "framesize": 12,
+    "varmemsize": 26
+  }
+}
