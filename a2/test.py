@@ -51,7 +51,7 @@ class Shell:
         print(f"====================")
         print(f"input content:")
         with open(input_commands_file, "r") as f:
-            print(f.readline())
+            print(f.read())
 
         command = (f"{self.shell_executable} < {input_commands_file}",)
 
