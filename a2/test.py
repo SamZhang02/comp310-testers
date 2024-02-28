@@ -114,7 +114,7 @@ class Test:
 
         # remove all files but files needed for compilation
         os.system(
-            r"find . -type f ! \( -name '*.c' -o -name '*.o' -o -name 'Makefile' -o -name '*.h' \) -delete"
+            r"find . ! \( -name '*.c' -o -name '*.o' -o -name 'Makefile' -o -name '*.h' \) -delete"
         )
 
         if client.assert_output(self.output) is False:
