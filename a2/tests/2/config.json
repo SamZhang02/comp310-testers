@@ -1,5 +1,5 @@
 {
-  "name": "multiple calls to exec and run work as expected",
+  "name": "multiple calls to exec and run within 1 session",
   "input": "input.txt",
   "output": "out.txt",
   "macros": {
