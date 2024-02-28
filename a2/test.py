@@ -69,8 +69,9 @@ class Shell:
         with open(expected_output_file, "r") as fobj:
             expected_output = fobj.read()
 
+        # it seems like the prof's autograder ignores newline, so we do that as well
         stdout_lines = [line for line in self.stdout.strip().split("\n") if line.strip() != ""]
-        expected_lines = expected_output.strip().split("\n")
+        expected_lines = [line for line in expected_output.strip().split("\n") if line.strip() != ""]
 
         i = 0
         if len(stdout_lines) != len(expected_lines):
