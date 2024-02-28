@@ -1,0 +1,2 @@
+run prog1
+quit

@@ -1,0 +1,9 @@
+{
+  "name": "exec very large files",
+  "input": "input.txt",
+  "output": "out.txt",
+  "macros": {
+    "framesize": 999,
+    "varmemsize": 1000
+  }
+}
