@@ -1,0 +1,9 @@
+Shell v2.0
+Frame Store Size = 999; Variable Store Size = 1000
+10
+20
+
+
+
+
+Bye!

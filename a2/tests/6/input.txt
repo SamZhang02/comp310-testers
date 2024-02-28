@@ -1,0 +1,8 @@
+set x 10
+set y 20
+print x
+print y
+resetmem
+print x
+print y
+quit
